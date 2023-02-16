@@ -29,7 +29,6 @@ export default function Document() {
 				<meta name="twitter:url" content="https://expense.fyi/" />
 				<meta name="twitter:description" content="Effortlessly Track and Manage Expenses." />
 				<link href="/static/icons/icon.svg" rel="icon" type="image/svg+xml" />
-				<link href="/static/icons/favicon.ico" rel="alternate icon" sizes="any" />
 				<link href="/static/icons/apple-touch-icon.png" rel="apple-touch-icon" />
 				<link rel="manifest" href="/static/manifest.json" />
 			</Head>

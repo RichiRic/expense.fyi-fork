@@ -34,6 +34,7 @@ export default function enforceAuth(req, res) {
 						order_status: true,
 						usage: true,
 						email: true,
+						email_reports: true,
 						plan_status: true,
 						new_signup_email: true,
 					},
