@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Switch } from '@headlessui/react';
 
-import { showErrorToast, showSuccessToast } from 'components/Toast';
+import { showErrorToast, showSuccessToast, showToast, toastMessages } from 'components/Toast';
 
 import { formatCurrency } from 'utils/formatter';
 
@@ -37,6 +37,10 @@ export default function General({ user }) {
 		}
 	};
 
+	const onChangeDummy = () => {
+		showToast(toastMessages.premiumUpgrade, 4000);
+	};
+
 	const onUpdate = async (data) => {
 		const { currency, locale } = data;
 		try {
@@ -56,6 +60,33 @@ export default function General({ user }) {
 		} catch (error) {
 			showErrorToast(error.message);
 		}
+	};
+
+	const EmailReportsToggle = (onChange) => {
+		return (
+			<div className="grid gap-6 p-3 sm:grid-cols-1">
+				<label className="block">
+					<div className="flex items-center justify-between text-sm text-black">
+						<p className="max-w-[280px] xs:max-w-full">
+							Get email insights on your monthly spendings on last working day.
+						</p>
+						<Switch
+							checked={emailReport}
+							onChange={onChange}
+							className={`${emailReport ? 'bg-green-600' : 'bg-gray-400'}
+	relative inline-flex h-[21px] w-[38px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+						>
+							<span className="sr-only">Email report</span>
+							<span
+								aria-hidden="true"
+								className={`${emailReport ? 'translate-x-4' : 'translate-x-0'}
+		pointer-events-none inline-block h-[17px] w-[17px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+							/>
+						</Switch>
+					</div>
+				</label>
+			</div>
+		);
 	};
 
 	return (
@@ -105,33 +136,10 @@ export default function General({ user }) {
 					</span>
 				</label>
 			</div>
-			{user.isPremiumPlan && !user.isPremiumPlanEnded ? (
-				<>
-					<h4 className="flex p-3 py-3 pb-0 text-lg font-extrabold leading-6 text-black">Reports</h4>
-					<div className="grid gap-6 p-3 sm:grid-cols-1">
-						<label className="block">
-							<div className="flex items-center justify-between text-sm text-black">
-								<p className="max-w-[280px] xs:max-w-full">
-									Get email insights on your monthly spendings on last working day.
-								</p>
-								<Switch
-									checked={emailReport}
-									onChange={onChange}
-									className={`${emailReport ? 'bg-green-600' : 'bg-gray-400'}
-          relative inline-flex h-[21px] w-[38px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
-								>
-									<span className="sr-only">Email report</span>
-									<span
-										aria-hidden="true"
-										className={`${emailReport ? 'translate-x-4' : 'translate-x-0'}
-            pointer-events-none inline-block h-[17px] w-[17px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-									/>
-								</Switch>
-							</div>
-						</label>
-					</div>
-				</>
-			) : null}
+			<h4 className="flex p-3 py-3 pb-0 text-lg font-extrabold leading-6 text-black">Reports</h4>
+			{user.isPremiumPlan && !user.isPremiumPlanEnded
+				? EmailReportsToggle(onChange)
+				: EmailReportsToggle(onChangeDummy)}
 		</div>
 	);
 }

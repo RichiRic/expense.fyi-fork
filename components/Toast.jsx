@@ -12,7 +12,7 @@ export const toastMessages = {
 	loading: 'Loading...',
 	paymentSuccess: 'Your payment is successful, page will reload in 6 seconds.',
 	paymentCancelled: 'Payment is cancelled, please try again',
-	premiumUpgrade: 'Upgrade for access to premium features.',
+	premiumUpgrade: 'Upgrade to premium plan to get this feature.',
 };
 
 const defaultDuration = 1500;

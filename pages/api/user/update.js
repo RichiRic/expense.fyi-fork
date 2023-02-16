@@ -20,7 +20,6 @@ export default withUserAuth(async (req, res, user) => {
 			await prisma.users.update({ data, where: { id: user.id } });
 			res.status(200).json({ message: 'Updated' });
 		} catch (error) {
-			console.log('error --->', error);
 			res.status(500).json({ error, message: 'Failed to updated, please try again.' });
 		}
 	} else {
