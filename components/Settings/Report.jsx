@@ -41,9 +41,7 @@ export default function Report({ user }) {
 			<div className="mt-2 grid gap-6 p-3 sm:grid-cols-1">
 				<label className="block">
 					<div className="flex items-center justify-between text-black">
-						<p className="max-w-[280px] xs:max-w-full">
-							Get email insights about monthly spendings on last working day.
-						</p>
+						<p className="max-w-[280px] xs:max-w-full">Get email insights about your spendings on month end.</p>
 						<Switch
 							checked={emailReport}
 							onChange={onChange}
