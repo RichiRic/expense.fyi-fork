@@ -14,7 +14,7 @@ export const BasicFeatureList = ({ className = '' }) => {
 		<div className={`mb-0 ml-1 mt-4 flex flex-col justify-center text-left text-white ${className}`}>
 			<span className="m-1 ml-0 flex items-center  text-[15px]">
 				<CheckCircleIcon className="mr-1 h-5 w-5 text-green-600" />
-				Trend visualisation with charts
+				Trend visualisations with charts
 			</span>
 
 			<span className="m-1 ml-0 flex items-center text-[15px]">
@@ -57,7 +57,7 @@ export default function Basic() {
 
 				<Link
 					href={signUpUrl}
-					className="mt-10 block w-full rounded-md bg-white py-2 text-center text-sm font-semibold text-black hover:bg-gray-200"
+					className="mt-16 block w-full rounded-md bg-white py-2 text-center text-sm font-semibold text-black hover:bg-gray-200"
 				>
 					Start for free
 				</Link>

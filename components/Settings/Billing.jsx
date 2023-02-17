@@ -38,7 +38,7 @@ export default function Billing({ user }) {
 						<button
 							disabled={true}
 							title={'Current plan'}
-							className={`mt-12 flex w-full justify-center rounded-md bg-zinc-500 py-2 text-center text-sm font-semibold text-white hover:bg-zinc-500`}
+							className={`mt-14 flex w-full justify-center rounded-md bg-zinc-500 py-2 text-center text-sm font-semibold text-white hover:bg-zinc-500`}
 						>
 							{user.isBasicPlan ? 'Current plan' : 'Expired'}
 						</button>
@@ -77,7 +77,7 @@ export default function Billing({ user }) {
 								}
 							}}
 							disabled={(user.isPremiumPlan && !user.isPremiumPlanEnded) || loading}
-							className={`mt-12 flex w-full justify-center rounded-md py-2 text-center text-sm font-semibold text-white ${
+							className={`mt-6 flex w-full justify-center rounded-md py-2 text-center text-sm font-semibold text-white ${
 								user.isPremiumPlan && !user.isPremiumPlanEnded
 									? 'bg-zinc-500 hover:bg-zinc-500'
 									: 'bg-zinc-900 hover:bg-zinc-800'

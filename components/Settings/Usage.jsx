@@ -17,7 +17,7 @@ export default function Usage({ user }) {
 			<div className="p-3 py-3 text-sm text-black">
 				<div className="flex items-center justify-between">
 					<div className="mt-1 mb-2">
-						<p className="text-base font-medium text-slate-700">Entries added</p>
+						<p className="text-base font-medium">Entries added</p>
 						<p className="mt-2 inline-block text-sm">
 							{usage} of {usageLimit}
 						</p>
@@ -26,7 +26,7 @@ export default function Usage({ user }) {
 				</div>
 				<ProgressBar percentageValue={(usage / usageLimit) * 100} showAnimation={true} color="blue" marginTop="mt-1" />
 			</div>
-			<div className="p-3 py-0 pb-3 font-medium text-slate-700">
+			<div className="p-3 py-0 pb-3 font-medium text-black">
 				{isPremiumPlan && !isPremiumPlanEnded ? (
 					<p className="text-sm">
 						Next billing at: {formatDate(addYears(new Date(user.billing_start_date), 1), locale)}
