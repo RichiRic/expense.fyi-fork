@@ -3,7 +3,7 @@ import prisma from 'lib/prisma';
 
 export default withUserAuth(async (req, res, user) => {
 	if (req.method === 'PATCH') {
-		const { currency, locale, email_reports } = req.body;
+		const { currency, locale, monthly_email_report } = req.body;
 
 		const data = {};
 
@@ -12,8 +12,8 @@ export default withUserAuth(async (req, res, user) => {
 			data.locale = locale;
 		}
 
-		if (email_reports !== undefined) {
-			data.email_reports = email_reports;
+		if (monthly_email_report !== undefined) {
+			data.monthly_email_report = monthly_email_report;
 		}
 
 		try {

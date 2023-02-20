@@ -106,7 +106,7 @@ model users {
   new_signup_email           Boolean         @default(false)
   premium_plan_expired_email Boolean         @default(false)
   premium_usage_limit_email  Boolean         @default(false)
-  email_reports              Boolean         @default(false)
+  monthly_email_report       Boolean         @default(false)
   expenses                   expenses[]
   income                     income[]
   investments                investments[]

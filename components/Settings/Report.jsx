@@ -5,7 +5,7 @@ import { Switch } from '@headlessui/react';
 import { showErrorToast, showSuccessToast, showToast, toastMessages } from 'components/Toast';
 
 export default function Report({ user }) {
-	const [emailReport, setEmailReport] = useState(user.email_reports);
+	const [emailReport, setEmailReport] = useState(user.monthly_email_report);
 
 	const onChange = async (toggle) => {
 		setEmailReport(toggle);
@@ -13,7 +13,7 @@ export default function Report({ user }) {
 			const res = await fetch('/api/user/update', {
 				method: 'PATCH',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ email_reports: toggle }),
+				body: JSON.stringify({ monthly_email_report: toggle }),
 			});
 
 			if (!res.ok) {
